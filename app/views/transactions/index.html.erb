@@ -15,8 +15,7 @@
   <tr>
     <td><%= transaction.name %></td>
     <td><%= transaction.amount %></td>
-    <td><%= transaction.category %></td>
-    <td><%= transaction.user %></td>
+    <td><%= transaction.transaction_category %></td>
     <td><%= link_to 'Show', [transaction.category, transaction] %></td>
     <td><%= link_to 'Edit', edit_category_transaction_path(transaction.category, transaction) %></td>
     <td><%= button_to 'Destroy', [transaction.category, transaction], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +26,4 @@
 <br />
 
 <%= link_to 'New Transaction', new_category_transaction_path(params[:category_id]) %>
+<%= link_to 'Back', categories_path %>

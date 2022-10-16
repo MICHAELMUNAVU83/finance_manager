@@ -19,7 +19,11 @@
     <%= f.label :amount %><br />
     <%= f.number_field :amount %>
   </div>
-  
+  <div>
+    <%= f.label :transaction_category %><br />
+    <%= f.select :transaction_category, options_for_select(Category.all.map { |c| [c.name, c.name] }, @transaction.category_id) %>
+
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

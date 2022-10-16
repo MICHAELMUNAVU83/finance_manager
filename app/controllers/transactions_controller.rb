@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
     @transaction.user_id = current_user.id
 
     if @transaction.save
-      redirect_to([@transaction.category, @transaction], notice: 'Transaction was successfully created.')
+      redirect_to category_transactions_path(@category), notice: 'Transaction was successfully created.'
     else
       render action: 'new'
     end
@@ -59,6 +59,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def transaction_params
-    params.require(:transaction).permit(:name, :amount)
+    params.require(:transaction).permit(:name, :amount , :transaction_category  )
   end
 end
