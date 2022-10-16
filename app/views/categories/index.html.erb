@@ -5,14 +5,6 @@
 <div id="categories">
   <% @categories.each do |category| %>
     <%= render category %>
-
-    Total amount for this categories is 
-    <%= category.transactions.sum(:amount) %>
-
-    <p>
-      
-      <%= link_to "see transactions", category_transactions_path(category) %>
-    </p>
   <% end %>
 </div>
 

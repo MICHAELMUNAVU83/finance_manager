@@ -1,12 +1,17 @@
 <div id="<%= dom_id category %>">
   <p>
-    <strong>Name:</strong>
-    <%= category.name %>
+   
+    <%= link_to category.name, category_transactions_path(category)  %>
   </p>
 
   <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
+    <img src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="category image"/>
   </p>
+  <p>
+     <%= category.transactions.sum(:amount) %> $
+  </p>
+
+  <%= category.created_at.strftime("%d/%m/%Y") %>
+
 
 </div>
