@@ -10,7 +10,7 @@
     <%= category.transactions.sum(:amount) %>
 
     <p>
-      <%= link_to "Show this category", category %>
+      
       <%= link_to "see transactions", category_transactions_path(category) %>
     </p>
   <% end %>

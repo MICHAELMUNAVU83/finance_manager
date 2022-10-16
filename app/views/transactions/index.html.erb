@@ -6,10 +6,9 @@ total amount is
     <th>Name</th>
     <th>Amount</th>
     <th>Category</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Edit</th>
+    <th>Delete</th>
+    
   </tr>
 
 <% @transactions.each do |transaction| %>
@@ -17,7 +16,6 @@ total amount is
     <td><%= transaction.name %></td>
     <td><%= transaction.amount %></td>
     <td><%= transaction.transaction_category %></td>
-    <td><%= link_to 'Show', [transaction.category, transaction] %></td>
     <td><%= link_to 'Edit', edit_category_transaction_path(transaction.category, transaction) %></td>
     <td><%= button_to 'Destroy', [transaction.category, transaction], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
