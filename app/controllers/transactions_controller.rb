@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_category
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: %i[show edit update destroy]
 
   # GET categories/1/transactions
   def index
@@ -8,8 +8,7 @@ class TransactionsController < ApplicationController
   end
 
   # GET categories/1/transactions/1
-  def show
-  end
+  def show; end
 
   # GET categories/1/transactions/new
   def new
@@ -18,8 +17,7 @@ class TransactionsController < ApplicationController
   end
 
   # GET categories/1/transactions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST categories/1/transactions
   def create
@@ -39,7 +37,6 @@ class TransactionsController < ApplicationController
     @transaction.category_id = @category.id
     @transaction.update(transaction_params)
     redirect_to category_transactions_path(@category)
-    
   end
 
   # DELETE categories/1/transactions/1
@@ -50,17 +47,18 @@ class TransactionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:category_id])
-    end
 
-    def set_transaction
-      @transaction = @category.transactions.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def transaction_params
-      params.require(:transaction).permit(:name, :amount)
-    end
+  def set_transaction
+    @transaction = @category.transactions.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def transaction_params
+    params.require(:transaction).permit(:name, :amount)
+  end
 end

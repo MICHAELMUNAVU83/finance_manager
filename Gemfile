@@ -14,7 +14,7 @@ gem 'pg', '~> 1.1'
 
 # use devise
 gem 'devise'
-# nested scaffold 
+# nested scaffold
 gem 'nested_scaffold'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
