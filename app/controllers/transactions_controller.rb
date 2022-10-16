@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
   # GET categories/1/transactions/new
   def new
     @transaction = @category.transactions.build
+    @transaction.user_id = current_user.id
   end
 
   # GET categories/1/transactions/1/edit
@@ -23,6 +24,7 @@ class TransactionsController < ApplicationController
   # POST categories/1/transactions
   def create
     @transaction = @category.transactions.build(transaction_params)
+    @transaction.user_id = current_user.id
 
     if @transaction.save
       redirect_to([@transaction.category, @transaction], notice: 'Transaction was successfully created.')
@@ -33,11 +35,11 @@ class TransactionsController < ApplicationController
 
   # PUT categories/1/transactions/1
   def update
-    if @transaction.update_attributes(transaction_params)
-      redirect_to([@transaction.category, @transaction], notice: 'Transaction was successfully updated.')
-    else
-      render action: 'edit'
-    end
+    @transaction.user_id = current_user.id
+    @transaction.category_id = @category.id
+    @transaction.update(transaction_params)
+    redirect_to category_transactions_path(@category)
+    
   end
 
   # DELETE categories/1/transactions/1
@@ -59,6 +61,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def transaction_params
-      params.require(:transaction).permit(:name, :amount, :category_id, :user_id)
+      params.require(:transaction).permit(:name, :amount)
     end
 end

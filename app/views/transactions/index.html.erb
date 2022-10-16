@@ -19,7 +19,7 @@
     <td><%= transaction.user %></td>
     <td><%= link_to 'Show', [transaction.category, transaction] %></td>
     <td><%= link_to 'Edit', edit_category_transaction_path(transaction.category, transaction) %></td>
-    <td><%= link_to 'Destroy', [transaction.category, transaction], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= button_to 'Destroy', [transaction.category, transaction], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
