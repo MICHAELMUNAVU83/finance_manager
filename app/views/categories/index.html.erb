@@ -1,11 +1,12 @@
 
 <%= render "categories/header" %>
-<h1>Categories</h1>
 
-<div id="categories">
+
+<div id="categories" class="d-flex flex-column justify-content-center">
   <% @categories.each do |category| %>
     <%= render category %>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path %>
+<div class="d-flex justify-content-center">
+<%= link_to "New category", new_category_path , class: "btn btn-primary py-2 " %>
+</div>
