@@ -1,19 +1,19 @@
 
-<nav class="d-flex justify-content-around">
+<nav class="d-flex justify-content-around bg-dark text-white py-2">
 
    <div>
-      <p> 3 bars </p>
+     <i class="fa-solid fa-bars fa-2x"></i>
     </div>
 
 
     <div>
-        <p> Categories </p>
+        <h2> Categories </h2>
     </div>
 
     <div>
           
             <% if user_signed_in? %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "btn btn-danger" %>
              <% else %>
              <%= link_to "Sign in", new_user_session_path %>
               <%= link_to "Sign up", new_user_registration_path %>
