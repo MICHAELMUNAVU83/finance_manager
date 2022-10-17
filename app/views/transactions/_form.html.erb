@@ -21,10 +21,10 @@
   </div>
   <div>
     <%= f.label :transaction_category %><br />
-    <%= f.select :transaction_category, options_for_select(Category.where(user_id: current_user.id).map{ |c| [c.name, c.name] }, @transaction.category_id) %>
+    <%= f.select :transaction_category, options_for_select(Category.where(user_id: current_user.id).map{ |c| [c.name, c.name] }, @transaction.category_id)  %>
 
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="py-2">
+    <%= f.submit class: "btn btn-success" %>
   </div>
 <% end %>
