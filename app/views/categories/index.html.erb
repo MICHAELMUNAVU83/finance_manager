@@ -1,19 +1,12 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<%= render "categories/header" %>
 
-<div id="categories">
+
+<div id="categories" class="d-flex flex-column justify-content-center">
   <% @categories.each do |category| %>
     <%= render category %>
-
-    Total amount for this categories is 
-    <%= category.transactions.sum(:amount) %>
-
-    <p>
-      
-      <%= link_to "see transactions", category_transactions_path(category) %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path %>
+<div class="d-flex justify-content-center">
+<%= link_to "New category", new_category_path , class: "btn btn-primary py-2 " %>
+</div>
